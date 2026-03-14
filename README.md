@@ -10,6 +10,7 @@ Video
 Link: https://drive.google.com/open?id=14KTZ7zoSsLVIv0z_RlP-HbzDfP27Cpjz&usp=drive_fs 
 
 🏗 Arquitectura del Sistema
+```
 API GET
    ↓
 Producer (Java)
@@ -22,6 +23,8 @@ Consumer (Java)
 API POST
    ↓
 Base de datos (DynamoDB)
+```
+
 📦 Tecnologías Utilizadas
 
 Java 17
@@ -38,6 +41,7 @@ Postman (pruebas de API)
 
 📁 Estructura de Proyectos
 Producer
+```
 producer-transacciones
 │
 ├── api
@@ -53,6 +57,7 @@ producer-transacciones
 │
 └── producer
     └── ProducerApp.java
+```
 
 Función:
 
@@ -65,6 +70,7 @@ Identifica el campo bancoDestino
 Envía cada transacción a una cola en RabbitMQ
 
 Consumer
+```
 consumer-transacciones
 │
 ├── api
@@ -80,6 +86,7 @@ consumer-transacciones
 │
 └── consumer
     └── ConsumerApp.java
+```
 
 Función:
 
@@ -106,6 +113,7 @@ Guarda una transacción en la base de datos.
 
 Ejemplo de transacción procesada:
 
+```
 {
 "idTransaccion":"TX-10000-JOSETEO",
 "monto":2484.14,
@@ -126,6 +134,7 @@ Ejemplo de transacción procesada:
    }
  }
 }
+```
 
 ⚙ Funcionamiento
 
@@ -134,11 +143,12 @@ Ejemplo de transacción procesada:
 3️⃣ Cada transacción se envía a una cola según el banco destino
 
 Ejemplo:
-
+```
 BANRURAL
 BAC
 GYT
 BI
+```
 
 4️⃣ El Consumer escucha las colas
 5️⃣ Cada mensaje se envía a la API POST
